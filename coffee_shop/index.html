@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Shop</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="asset/img/462558541_1051561199991457_4793083338723292253_n.jpg" alt="">
+                <h1>FAB Cafe</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="order.html">Order</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#">FAB Gallery</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- main content -->
+    <sidebar>
+        <div class="facebook ">
+            <a href="https://www.facebook.com/profile.php?id=61562315550432"><i class="fab fa-facebook"></i></a>
+        </div>
+        <div class="twitter ">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+        <div class="instagram ">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </sidebar>
+
+    <!-- Welcome Section -->
+    <section id="welcome">
+        <h2>FOOD & BREW</h2>
+        <p>MeetEat Drink Smile</p>
+        <p>Est. 2022</p>
+    </section>
+    <main>
+        <!-- Our History Section -->
+        <section id="History">
+            <div class="card scroll-card" id="history-card">
+                <img src="./asset/img/starbuck-2363703_1280.jpg" alt="Our History" class="history-image">
+                <div class="history-content">
+                    <h2>Our History</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, cumque?</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Meet Our Owner Section -->
+        <section id="owner">
+            <div class="card scroll-card">
+                <img src="owner-image.jpg" alt="Meet Our Owner" class="owner-image">
+                <div class="owner-content">
+                    <h2>Meet Our Owner</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, cumque?</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Team Section -->
+        <section id="employees">
+            <h2>Our Team</h2>
+            <div class="employees-container">
+                <div class="employee-card scroll-card">
+                    <img src="employee1.jpg" alt="Employee 1" class="employee-image">
+                    <h3>Jhan-Jhan Soriben</h3>
+                    <p>Barista</p>
+                    <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
+                </div>
+                <div class="employee-card scroll-card">
+                    <img src="employee2.jpg" alt="Employee 2" class="employee-image">
+                    <h3>Arleabel Ramos</h3>
+                    <p>Manager</p>
+                    <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
+                </div>
+                <div class="employee-card scroll-card">
+                    <img src="employee3.jpg" alt="Employee 3" class="employee-image">
+                    <h3>Daniel Caccam</h3>
+                    <p>Assistant</p>
+                    <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about">
+            <h2>About Us</h2>
+            <div class="about-content">
+                <img src="asset/img/6152359056464003971.jpg" alt="About Us" class="about-image">
+                <div class="about-text">
+                    <p>
+                        At FAB Cafe, we believe in bringing people together over a shared love of coffee and good food.
+                        Since opening our doors in 2022, our mission has been to create a warm, welcoming environment
+                        where
+                        everyone feels like family. From our carefully crafted brews to our delicious food offerings,
+                        every
+                        aspect of FAB Cafe is designed to make your experience memorable.
+                    </p>
+                    <p>
+                        Join us for a cup of coffee, meet our friendly team, and be part of our story. We’re excited to
+                        share our passion for coffee and community with you!
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2024 Food & Brew. All rights reserved.</p>
+        </footer>
+    </main>
+
+</body>
+<script>
+    function handleScrollAnimation() {
+        const scrollCards = document.querySelectorAll('.scroll-card');
+        scrollCards.forEach(card => {
+            const cardPosition = card.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            if (cardPosition < windowHeight - 100) {
+                card.classList.add('in-view');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', handleScrollAnimation);
+    window.addEventListener('load', handleScrollAnimation);
+</script>
+<script>
+    let lastScrollTop = 0;
+    const sidebar = document.querySelector("sidebar");
+
+    window.addEventListener("scroll", () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop) {
+            // Scroll down - hide the sidebar
+            sidebar.classList.add("hide-sidebar");
+        } else {
+            // Scroll up - show the sidebar
+            sidebar.classList.remove("hide-sidebar");
+        }
+
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    });
+
+</script>
+
+</html>
